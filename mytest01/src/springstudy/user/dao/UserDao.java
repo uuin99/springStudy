@@ -5,14 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import springstudy.user.domain.User;
 
 public class UserDao {
 
 	private ConnectionMaker connectionMaker;
 	
+	public void setConnectionMaker(ConnectionMaker connectionMaker) {
+		this.connectionMaker = connectionMaker;
+	}
+
 	public UserDao() {
 //		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
 //		this.connectionMaker = context.getBean("connectionMaker", ConnectionMaker.class);
