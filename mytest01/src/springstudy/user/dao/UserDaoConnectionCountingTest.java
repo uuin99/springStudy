@@ -13,19 +13,19 @@ public class UserDaoConnectionCountingTest {
 		UserDao dao = context.getBean("userDao", UserDao.class);
 		
 		User user = new User();
-		user.setId("whiteship");
-		user.setName("¹é±â¼±");
-		user.setPassword("married");
+		user.setId("uuin99");
+		user.setName("ì˜¤ì •í›ˆ");
+		user.setPassword("ojhk7615");
 		
 		dao.add(user);
 		
-		System.out.println(user.getId() + " µî·Ï ¼º°ø");
+		System.out.println(user.getId() + " ë“±ë¡ì„±ê³µ");
 		
 		User user2 = dao.get(user.getId());
 		System.out.println(user2.getName());
 		System.out.println(user2.getPassword());
 		
-		System.out.println(user2.getId() + " Á¶È¸ ¼º°ø");
+		System.out.println(user2.getId() + " ì¡°íšŒì„±ê³µ");
 		
 		CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
 		System.out.println("Connection counter : " + ccm.getCounter());

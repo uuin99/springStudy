@@ -16,22 +16,22 @@ public class UserDaoTest {
 		UserDao dao = context.getBean("userDao", UserDao.class);
 		
 		User user = new User();
-		user.setId("whiteship");
-		user.setName("¹é±â¼±");
-		user.setPassword("married");
+		user.setId("uuin99");
+		user.setName("ì˜¤ì •í›ˆ");
+		user.setPassword("ojhk7615");
 		
 		dao.add(user);
 		
-		System.out.println(user.getId() + " µî·Ï ¼º°ø");
+		System.out.println(user.getId() + " ë“±ë¡ì„±ê³µ");
 		
 		User user2 = dao.get(user.getId());
 		
 		if (!user.getName().equals(user2.getName())) {
-			System.out.println("Å×½ºÆ® ½ÇÆĞ (name)");
+			System.out.println("í…ŒìŠ¤íŠ¸ ì‹¤íŒ¨ (name)");
 		} else if (!user.getPassword().equals(user2.getPassword())) {
-			System.out.println("Å×½ºÆ® ½ÇÆĞ (password)");
+			System.out.println("í…ŒìŠ¤íŠ¸ ì‹¤íŒ¨ (password)");
 		} else {
-			System.out.println("Á¶È¸ Å×½ºÆ® ¼º°ø");
+			System.out.println("ì¡°íšŒ í…ŒìŠ¤íŠ¸ ì„±ê³µ");
 		}
 	}
 
