@@ -5,27 +5,18 @@ import static org.junit.Assert.assertThat;
 
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.JUnitCore;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 
 import springstudy.user.domain.User;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="/test-applicationContext.xml")
 public class UserDaoTest {
-	@Autowired
-	private ApplicationContext context;
-	
-//	private UserDao dao;
-
-	@Autowired
 	UserDao dao;
 	private User user1;
 	private User user2;
@@ -33,8 +24,10 @@ public class UserDaoTest {
 	
 	@Before
 	public void setUp() {
-		System.out.println(this.context);
-		System.out.println(this);
+		dao = new UserDao();
+		DataSource dataSource = new SingleConnectionDataSource(
+				"jdbc:mysql://localhost/MySql", "root", "1q2w3e4R", true);
+		dao.setDataSource(dataSource);
 		
 		this.user1 = new User("uuin99", "오정훈", "ojhk7615");
 		this.user2 = new User("leegw", "이길원", "springno01");
