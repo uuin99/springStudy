@@ -11,7 +11,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 
 import springstudy.user.domain.User;
 
-public class UserDao {
+public abstract class UserDao {
 
 	private DataSource dataSource;
 
@@ -96,11 +96,7 @@ public class UserDao {
 		}
 	}
 
-	public PreparedStatement makeStatement(Connection c) throws SQLException {
-		PreparedStatement ps;
-		ps = c.prepareStatement("delete from users");
-		return ps;
-	}
+	abstract protected PreparedStatement makeStatement(Connection c) throws SQLException;
 	
 	public int getCount() throws SQLException {
 		Connection c = null;
